@@ -17,7 +17,7 @@ for i in sys.argv[1:]:
 def get_tz_transition_time(tz, year):
     return [x for x in tz._utc_transition_times if x.year == year]
 
-START_YEAR = 2020
+START_YEAR = datetime.datetime.today().year - 2
 END_YEAR = datetime.datetime.today().year + 5
 OUTPUT = 'timezone.ics'
 
