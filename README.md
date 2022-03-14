@@ -1,15 +1,16 @@
-Quick script and Github action to generate a ics file to warn when DST is causing a mess in your calendar.
+Quick script and Github action to generate a iCalendar (RFC 5545) file to warn when DST is causing a mess in your calendar.
 
-The script use the Olson timezones database and generate a ICS to warn when meetings are going to cause conflicts because
-two timezone do not change at the same time.
+The script use the Olson timezones database and generate a iCalendar file to warn when meetings are going to cause conflicts because
+two timezones are not applying DST at the same time (like part of Europe and part of US). It can cause some troubles on international
+teams, so it is wise to anticipate, hence the script.
 
 # FAQ
 
-## Where is the ics file published ?
+## Where is the calendar file published ?
 
 The canonical one is on [this github pages](https://mscherer.github.io/dst_calendar/).
 
-## Why are you using the 2 timezones you choose ?
+## Why did you choose using the 2 timezones you are using ?
 
 One is my timezone, the other one is the company one. Feel free to fork and change them in the workflow file.
 
