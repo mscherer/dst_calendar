@@ -1,0 +1,36 @@
+name: Publish calendar ics file via GitHub Pages
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    name: Deploy calendar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Run the conversion
+        run: |
+          pip install ics pytz
+          python ./convert_ics.py $TIMEZONE_1 $TIMEZONE_2
+          mkdir -p $DEST
+          cp index.html timezone.ics $DEST
+        env:
+          DEST: _site
+          TIMEZONE_1: Europe/Paris 
+          TIMEZONE_2: US/Eastern
+      - name: Deploy to GitHub Pages
+        uses: Cecilapp/GitHub-Pages-deploy@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          email: mscherer@localhost
+          build_dir: _site
+          branch: gh-pages 
