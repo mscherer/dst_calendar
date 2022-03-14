@@ -51,6 +51,7 @@ for y in range(START_YEAR, END_YEAR):
                    uid = uid,
                    begin = begin,
                    end = end)
+        ev.make_all_day()
         cal.events.add(ev)
 
 
