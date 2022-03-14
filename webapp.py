@@ -32,9 +32,6 @@ def calendar(subpath):
 @app.route('/')
 def index():
     return "To get the calendar, just append the timezones separated by /, like this: https://thisite/Europe/Paris/Asia/Tokyo/"
-# main driver function
-if __name__ == '__main__':
 
-    # run() method of Flask class runs the application
-    # on the local development server.
-    app.run()
+if __name__ == '__main__':
+    app.run(host="0.0.0.0")

@@ -6,4 +6,4 @@ RUN pip install pytz flask ics
 WORKDIR /srv
 ADD generate_calendar.py webapp.py /srv/  
 EXPOSE 5000
-CMD ["/usr/bin/python3", "/srv/webapp.py","--host=0.0.0.0" ]
+CMD ["/usr/bin/python3", "/srv/webapp.py"]
