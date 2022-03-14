@@ -22,3 +22,7 @@ Github also provides Github Pages, and while I can self host the ics, it is also
 ## Why did you decide to write that on a Monday morning ?
 
 Writing a python script dealing with timezone seemed to be the easiest way to brag about "I can manipulate spaces and time".
+
+## Is there a way to have the ics file on demand ?
+
+Yes, a container with a small hackish web application is available on the Github Container Registry. Just run it and go to port 5000.
