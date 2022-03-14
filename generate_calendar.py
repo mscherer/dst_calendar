@@ -47,7 +47,11 @@ for y in range(START_YEAR, END_YEAR):
 
 
         uid = hashlib.md5((begin.isoformat()).encode()).hexdigest()
-        ev = Event(name = "Timezone trouble period - %s %s" % (c+1, y),
+        if c == 0:
+            p = "Summer time"
+        else:
+            p = "Winter time"
+        ev = Event(name = "Timezone trouble period - %s %s" % (p, y),
                    uid = uid,
                    begin = begin,
                    end = end)
