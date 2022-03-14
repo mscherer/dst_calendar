@@ -1,5 +1,7 @@
 LABEL org.opencontainers.image.source="https://github.com/mscherer/dst_calendar"
+LABEL maintainer="mscherer@redhat"
+
 RUN dnf install -y python3-pip && dnf clean all
 RUN pip install pytz flask ics
- 
-
+EXPOSE 5000
+CMD ["python", "./webapp.py" ]
