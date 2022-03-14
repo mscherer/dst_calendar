@@ -1,0 +1,42 @@
+name: Build Docker image
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  build:
+    name: Build image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v2
+      - name: Run the build
+        run: |
+          export DATE=$(date +%Y%m%d)
+          # use that here since the variable are not present before start, so can't be in env
+          export LOGIN=$GITHUB_REPOSITORY_OWNER
+          export IMAGE=$GITHUB_REPOSITORY
+
+          # ugly hack to get Fedora version based on build date
+          BASE=$(date +%Y)
+          BASE=$(($BASE - 2020))
+          BASE=$(($BASE + 33))
+
+          MONTH=$(date +%m)
+          HALF=$(($MONTH / 6))
+
+          VERSION=$(($BASE + $HALF))
+
+          (echo "FROM registry.fedoraproject.org/fedora:$VERSION" ; cat Dockerfile.template) > Dockerfile
+
+          echo $PASSWORD | docker login $REGISTRY -u $LOGIN --password-stdin
+
+          docker build . --tag $REGISTRY/$IMAGE:$DATE --tag $REGISTRY/$IMAGE:latest
+          docker push $REGISTRY/$IMAGE:latest
+          docker push $REGISTRY/$IMAGE:$DATE
+        env:
+          REGISTRY: ghcr.io
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
