@@ -21,6 +21,7 @@ def calendar(subpath):
     else:
         tzs = []
         for t in res:
+            print(t)
             tzs.append(pytz.timezone(t))
 
         cal = get_calendar(tzs, START_YEAR, END_YEAR)
@@ -31,7 +32,7 @@ def calendar(subpath):
 
 @app.route('/')
 def index():
-    return 'To get the calendar, just append the timezones separated by /, like this: <a href="/Europe/Paris/Asia/Tokyo/">https://thisite/Europe/Paris/Asia/Tokyo/</a>'
+    return 'To get the calendar, just append the timezones separated by /, like this: <a href="/Europe/Paris/US/Pacific/">https://thisite/Europe/Paris/US/Pacific/</a>'
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
