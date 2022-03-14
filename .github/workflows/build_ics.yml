@@ -19,7 +19,7 @@ jobs:
       - name: Run the conversion
         run: |
           pip install ics pytz
-          python ./convert_ics.py $TIMEZONE_1 $TIMEZONE_2
+          python ./generate_calendar.py $TIMEZONE_1 $TIMEZONE_2
           mkdir -p $DEST
           cp index.html timezone.ics $DEST
         env:
