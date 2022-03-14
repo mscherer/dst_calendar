@@ -4,7 +4,6 @@ import pytz
 from generate_calendar import START_YEAR, END_YEAR, get_calendar 
 
 @app.route('/<path:subpath>')
-# ‘/’ URL is bound with hello_world() function.
 def calendar(subpath):
     components = subpath.split('/')
     c = []
@@ -32,7 +31,7 @@ def calendar(subpath):
 
 @app.route('/')
 def index():
-    return "Plop"
+    return "To get the calendar, just append the timezones separated by /, like this: https://thisite/Europe/Paris/Asia/Tokyo/"
 # main driver function
 if __name__ == '__main__':
 
