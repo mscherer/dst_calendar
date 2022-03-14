@@ -31,7 +31,7 @@ def calendar(subpath):
 
 @app.route('/')
 def index():
-    return "To get the calendar, just append the timezones separated by /, like this: https://thisite/Europe/Paris/Asia/Tokyo/"
+    return 'To get the calendar, just append the timezones separated by /, like this: <a href="//Europe/Paris/Asia/Tokyo/">https://thisite/Europe/Paris/Asia/Tokyo/</a>'
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
