@@ -16,7 +16,7 @@ One is my timezone, the other one is the company one. Feel free to fork and chan
 
 ## Why are you using non-free infrastructure for that ?
 
-Github actions is free of charge, and the CI I use ([Woodpecker](https://woodpecker-ci.org/)) do not support [scheduled jobs](https://github.com/woodpecker-ci/woodpecker/issues/8) for the moment.
+Github actions is free of charge, and the CI I use ([Woodpecker](https://woodpecker-ci.org/)) do not support [scheduled jobs](https://github.com/woodpecker-ci/woodpecker/issues/8) in a stable version for the moment.
 Github also provides Github Pages, and while I can self host the ics, it is also simpler to delegate to the platform.
 
 ## Why did you decide to write that on a Monday morning ?
