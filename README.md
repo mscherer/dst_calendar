@@ -12,11 +12,11 @@ The canonical one is on [this github pages](https://mscherer.github.io/dst_calen
 
 ## Why did you choose using the 2 timezones you are using ?
 
-One is my timezone, the other one is the company one. Feel free to fork and change them in the workflow file.
+One is my timezone, the other one is the company one. Feel free to fork and change them in the workflow file. I can also give you the email of various consultants if you wish to deploy a enterprise version of the application.
 
 ## Why are you using non-free infrastructure for that ?
 
-Github actions is free of charge, and the CI I use ([Woodpecker](https://woodpecker-ci.org/)) do not support [scheduled jobs](https://github.com/woodpecker-ci/woodpecker/issues/8) in a stable version for the moment.
+Github actions is free of charge, and the CI I use ([Woodpecker](https://woodpecker-ci.org/)) did not support [scheduled jobs](https://github.com/woodpecker-ci/woodpecker/issues/8) in a stable version when I wrote the automation.
 Github also provides Github Pages, and while I can self host the ics, it is also simpler to delegate to the platform.
 
 ## Why did you decide to write that on a Monday morning ?
